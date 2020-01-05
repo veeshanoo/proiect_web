@@ -25,36 +25,36 @@ function loadQuotes(data) {
     for (let i = 0; i < data.length; i++) {
         const el = data[i];
         console.log(el);
-        addNewArticle(el.data, el.author, el.special);
+        addNewQuote(el.data, el.author, el.special);
     }
 }
 
 
-function addNewArticle(data, author, special) {
+function addNewQuote(data, author, special) {
     let tmp = document.getElementsByTagName("template")[0];
-    let articleClone = tmp.content.cloneNode(true);
+    let newQuote = tmp.content.cloneNode(true);
 
-    articleClone.getElementById("quote-data").textContent = data;
-    articleClone.getElementById("quote-author").textContent = author;
+    newQuote.getElementById("quote-data").textContent = data;
+    newQuote.getElementById("quote-author").textContent = author;
     if (special == true) {
-        articleClone.querySelector(".quote").className += " special-quote";
+        newQuote.querySelector(".quote").className += " special-quote";
     }
 
 
-    articleClone.getElementById("button-id").addEventListener("click", function(event) {
+    newQuote.getElementById("button-id").addEventListener("click", function(event) {
         let v = event.target.parentElement.nextSibling.nextElementSibling.textContent;
         deleteQuoteByData(v);
         event.stopPropagation();
     });
 
-    articleClone.querySelector(".quote").addEventListener("click", function(event) {
+    newQuote.querySelector(".quote").addEventListener("click", function(event) {
         let v = event.target.parentElement.children[1].textContent;
         console.log(v);
         updateQuote(v);
         event.stopPropagation();
     });
 
-    document.getElementById("1").appendChild(articleClone);
+    document.getElementById("1").appendChild(newQuote);
 }
 
 function deleteQuoteByData(data) {
