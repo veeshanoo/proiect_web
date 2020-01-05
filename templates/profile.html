@@ -1,0 +1,26 @@
+{{ define "profile" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="./static/css/profile.css">
+</head>
+<body>
+
+    <div class="profile-page">
+        {{ template "header" . }}
+        <div class = "main-frame" id="1"></div>
+        {{ template "footer" }}
+    </div>
+
+    <template>
+        {{ template "article" }}
+    </template>
+
+    <script src="./static/js/scripts.js"></script>
+
+</body>
+</html>
+{{ end }}

@@ -1,0 +1,38 @@
+{{ define "article_add" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="./static/css/profile.css">
+</head>
+<body>
+
+    <div class="add-page">
+        {{ template "header" .}}
+        <div class="add-form">
+            <form action="/profile/add" method="post" class="my-form" id="add-form">
+
+                <label class="text-style">Quote:</label>
+                <br>
+                <input type="text" name="data" value="" class="text-style" required>
+                <br>
+                <label class="text-style">Author:</label>
+                <br>
+                <input type="text" name="author" value="" class="text-style" required>
+                <br><br>
+                <button type="submit" id="button-id" class="add-quote">Add quote</button>
+            </form>
+        </div>
+
+        {{ template "footer" }}
+    </div>
+
+
+
+    <script src="http://localhost:8080/static/js/add.js"></script>
+
+</body>
+</html>
+{{ end }}
